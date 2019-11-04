@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignmenet 9 Mini Assignment JSON</title>
+  </head>
+  <style media="screen">
+    body {
+      font-family: sans-serif;
+    }
+    #title {
+      color: #ff0000;
+    }
+
+    .bandsPretty {
+      text-align: center;
+    }
+
+    form {
+      text-align: center;
+      font-size: 20px;
+    }
+
+    form select {
+      font-size: 20px;
+    }
+
+    form input[type=button] {
+      padding: 10px 30px;
+      background-color: #0069ed;
+      border:none;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+
+    p {
+      font-size: 10px;
+    }
+
+    h1 {
+      font-size: 20px;
+      text-align: center;
+    }
+    #info {
+      visibility: hidden;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"
+          integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+          crossorigin="anonymous">
+  </script>
+  <body>
+    <script src="assignment9.json" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    //songs is the name of the variable of the external JSON file
+
+    // displaying serialized data
+      strSongs = JSON.stringify(songs);
+      document.write("Below is the serialized JSON string data: " + "<br>");
+      document.write(strSongs+"<br>" + "<br>");
+
+    </script>
+
+    <div class="">
+      <form class="" >
+        <label>select the genre:  &nbsp </label>
+        <select id="genreList">
+          <option value="default">Please Select</option>
+        </select> <br>
+        <input type="button" name="" value="Select" id="selectBtn" onclick="displayResults()">
+      </form>
+
+      <div class="">
+        <h1 id="info">Your search results: </h1>
+        <ul id="resultDisplay">
+        </ul>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+          songsParse = JSON.parse(strSongs);
+
+          document.write("<br>");
+
+          for (var i in songsParse) {
+            var songTitle = document.createElement("h1");
+            songTitle.id = "title";
+            songTitle.className = "bandsPretty";
+            songTitle.innerHTML = songsParse[i].title;
+            songTitle.style.fontWeight = "900";
+            document.body.appendChild(songTitle);
+
+            var songArtist = document.createElement("p");
+            songArtist.className = "bandsPretty";
+            songArtist.innerHTML = "Artist: " + songsParse[i].artist;
+            document.body.appendChild(songArtist);
+
+            var songAlbum = document.createElement("p");
+            songAlbum.className = "bandsPretty";
+            songAlbum.innerHTML = "Album: " + songsParse[i].album;
+            document.body.appendChild(songAlbum);
+
+            var songGenres = document.createElement("p");
+            songGenres.className = "bandsPretty";
+            songGenres.innerHTML = "Genre: " + songsParse[i].genre;
+            document.body.appendChild(songGenres);
+
+            var songYear = document.createElement("p");
+            songYear.className = "bandsPretty";
+            songYear.innerHTML = "Released in " + songsParse[i].year;
+            document.body.appendChild(songYear);
+
+            document.write("<br>");
+          }
+    </script>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+    var genresSel = document.getElementById("genreList");
+
+    var genreArray = new Array();
+     //var i = 0;
+     for (m in songsParse) {
+       for (n in songsParse[m].genre) {
+         var opt = document.createElement("option");
+         opt.value = songsParse[m].genre[n];
+         opt.innerHTML = songsParse[m].genre[n];
+         genresSel.appendChild(opt);
+       }
+     }
+
+   // remove duplicated values
+    var holder = new Array();
+    $("select option").each(function () {
+        if (holder[this.value]) {
+            $(this).remove();
+        }
+        holder[this.value] = true;
+    });
+
+    function displayResults () {
+
+
+      //alert("this is called");
+      chosenGenre = document.getElementById('genreList').value;
+      if (chosenGenre == "default") {
+        alert("you have to make a choice");
+      } else {
+        //alert(chosenGenre);
+        //document.body.appendChild("You Have Selected: " + "<br>");
+
+        //var result = document.getElementById('resultDisplay');
+        $("#resultDisplay").empty();
+        document.getElementById("info").style.visibility = "visible";
+
+
+        for (var h in songsParse) {
+          for (var g in songsParse[h].genre) {
+            if (chosenGenre == songsParse[h].genre[g]) {
+              //alert(songsParse[h].title);
+              var thisSongName = document.createElement("h1");
+              thisSongName.innerHTML = "-" + songsParse[h].title;
+              thisSongName.className = "bandsPretty"
+              document.getElementById("resultDisplay").appendChild(thisSongName);
+            }
+          }
+        }
+      }
+
+    }
+
+    </script>
+
+  </body>
+</html>

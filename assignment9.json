@@ -1,0 +1,72 @@
+songs = [
+  {
+    "title": "What I've Done",
+    "artist": ["Linkin Park"],
+    "album":"Minutes to Midnight",
+    "year": 2007,
+    "genre": ["Alternative","Hard Rock","Indie"]
+  },
+  {
+    "title": "The Beginning",
+    "artist": ["One Ok Rock"],
+    "album":"Jinsei x Boku =",
+    "year": 2013,
+    "genre": ["Rock"]
+  },
+  {
+    "title": "Black Bird",
+    "artist": ["Boku no Lyric No Bouyomi"],
+    "album":"Ningen",
+    "year": 2015,
+    "genre": ["J-pop"]
+  },
+  {
+    "title": "Taking Off",
+    "artist": ["One Ok Rock"],
+    "album":"Ambitions",
+    "year": 2017,
+    "genre": ["Rock"]
+  },
+  {
+    "title": "Tale Of The Red Cliff",
+    "artist": ["JJ Lin"],
+    "album":"Sixology",
+    "year": 2008,
+    "genre": ["Mandopop"]
+  },
+  {
+    "title": "Never Say Never",
+    "artist": ["The Fray"],
+    "album":"The Fray",
+    "year": 2009,
+    "genre": ["Pop","Rock"]
+  },
+  {
+    "title": "Dream ON",
+    "artist": ["Aerosmith"],
+    "album":"Aerosmith",
+    "year": 1973,
+    "genre": ["Hard Rock"]
+  },
+  {
+    "title": "Summer Days",
+    "artist": ["Martin Garrix","Maklemore","Patrick Stump"],
+    "album":"The Martin Garrix Experience",
+    "year": 2019,
+    "genre": ["Pop","Dance","Funk"]
+  },
+  {
+    "title": "Loser",
+    "artist": ["Kenshi Yonezu"],
+    "album":"Bootleg",
+    "year": 2017,
+    "genre": ["J-pop"]
+  },
+  {
+    "title": "Something Just Like This",
+    "artist": ["Coldplay","The Chainsmokers"],
+    "album": "Memories...Do Not Open",
+    "year":2017,
+    "genre":["Dance","Electronic"]
+  }
+]
